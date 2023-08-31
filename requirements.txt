@@ -1,6 +1,20 @@
+
+# make conda environemnt with Python 3.8.12
+# install CUDA 11.3 on the Device 
+# check your GPU compatibility 
+#  
+# conda install pytorch==1.11.0 torchvision==0.11.0 torchaudio==0.10.0 cudatoolkit=11.3 -c pytorch -c conda-forge
+# import torch 
+# print(torch.cuda.is_available())
+# it should be True
+
+#  print(torchvision. __version__)
+
+# pip install -r requirements
+
 hypothesis==6.24.2
 numpy==1.22.3
-sklearn
+scikit-learn
 pandas==1.4.2
 Flask
 apscheduler
@@ -11,3 +25,4 @@ html-testRunner==1.2.1
 # conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch
 # conda install pyg -c pyg
 # conda install captum -c pytorch
+# pip install torch_geometric==1.6.1
