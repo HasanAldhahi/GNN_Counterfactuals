@@ -24,7 +24,7 @@ fonttools==4.29.1
 googledrivedownloader==0.4
 idna==3.3
 iniconfig==1.1.1
-intel-openmp==2022.0.0
+#intel-openmp==2022.0.0
 itsdangerous==2.0.1
 jinja2==3.0.3
 joblib==1.1.0
