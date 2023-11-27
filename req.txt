@@ -2,7 +2,7 @@ apscheduler==3.8.1
 atomicwrites==1.4.0
 attrs==21.4.0
 blas==2.113=mkl
-blas-devel==3.9.0=13_win64_mkl
+blas-devel==3.9.0
 bokeh==2.4.2
 brotli==1.0.9
 brotli-bin==1.0.9
