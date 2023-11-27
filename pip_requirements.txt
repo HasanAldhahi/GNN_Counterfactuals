@@ -1,68 +1,68 @@
-APScheduler @ file:///D:/bld/apscheduler_1637116172002/work
+APScheduler 
 atomicwrites==1.4.0
-attrs @ file:///opt/conda/conda-bld/attrs_1642510447205/work
-bokeh @ file:///C:/ci/bokeh_1638362940011/work
-brotlipy @ file:///D:/bld/brotlipy_1636012381660/work
+attrs 
+bokeh 
+brotlipy 
 captum==0.5.0
 certifi==2021.10.8
-cffi @ file:///D:/bld/cffi_1636046293990/work
-charset-normalizer @ file:///home/conda/feedstock_root/build_artifacts/charset-normalizer_1643649795184/work
-click @ file:///D:/bld/click_1635822830533/work
-colorama @ file:///home/conda/feedstock_root/build_artifacts/colorama_1602866480661/work
-cryptography @ file:///D:/bld/cryptography_1639699508385/work
-cycler @ file:///home/conda/feedstock_root/build_artifacts/cycler_1635519461629/work
-dataclasses @ file:///home/conda/feedstock_root/build_artifacts/dataclasses_1628958434797/work
-Flask @ file:///home/conda/feedstock_root/build_artifacts/flask_1644887820294/work
+cffi 
+charset-normalizer 
+click 
+colorama 
+cryptography 
+cycler 
+dataclasses 
+Flask 
 Flask-Cors==4.0.0
 Flask-UUID==0.2
-fonttools @ file:///D:/bld/fonttools_1643722825909/work
-googledrivedownloader @ file:///home/conda/feedstock_root/build_artifacts/googledrivedownloader_1619807768586/work
-idna @ file:///home/conda/feedstock_root/build_artifacts/idna_1642433548627/work
-iniconfig @ file:///home/linux1/recipes/ci/iniconfig_1610983019677/work
-itsdangerous @ file:///home/conda/feedstock_root/build_artifacts/itsdangerous_1621360792037/work
-Jinja2 @ file:///home/conda/feedstock_root/build_artifacts/jinja2_1636510082894/work
-joblib @ file:///home/conda/feedstock_root/build_artifacts/joblib_1633637554808/work
-kiwisolver @ file:///D:/bld/kiwisolver_1635836839743/work
-MarkupSafe @ file:///D:/bld/markupsafe_1635833725355/work
-matplotlib @ file:///D:/bld/matplotlib-suite_1639359275746/work
+fonttools 
+googledrivedownloader 
+idna 
+iniconfig 
+itsdangerous 
+Jinja2 
+joblib 
+kiwisolver 
+MarkupSafe 
+matplotlib 
 munkres==1.1.4
-networkx @ file:///home/conda/feedstock_root/build_artifacts/networkx_1635253012265/work
-numpy @ file:///D:/bld/numpy_1649060072363/work
-olefile @ file:///home/conda/feedstock_root/build_artifacts/olefile_1602866521163/work
-packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_1637239678211/work
-pandas @ file:///D:/bld/pandas_1642871738130/work
+networkx 
+numpy 
+olefile 
+packaging 
+pandas 
 Pillow==8.4.0
-pluggy @ file:///C:/ci/pluggy_1648042776090/work
-py @ file:///opt/conda/conda-bld/py_1644396412707/work
-pycparser @ file:///home/conda/feedstock_root/build_artifacts/pycparser_1636257122734/work
-pyOpenSSL @ file:///home/conda/feedstock_root/build_artifacts/pyopenssl_1643496850550/work
-pyparsing @ file:///home/conda/feedstock_root/build_artifacts/pyparsing_1642753572664/work
-PySocks @ file:///D:/bld/pysocks_1635862590164/work
+pluggy 
+py 
+pycparser 
+pyOpenSSL 
+pyparsing 
+PySocks 
 pytest==7.1.1
-python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/python-dateutil_1626286286081/work
-python-louvain @ file:///home/conda/feedstock_root/build_artifacts/python-louvain_1643704011655/work
-pytz @ file:///home/conda/feedstock_root/build_artifacts/pytz_1633452062248/work
-PyYAML @ file:///D:/bld/pyyaml_1636139895442/work
-requests @ file:///home/conda/feedstock_root/build_artifacts/requests_1641580202195/work
-scikit-learn @ file:///D:/bld/scikit-learn_1640464350231/work
-scipy @ file:///C:/bld/scipy_1644116074163/work
-six @ file:///home/conda/feedstock_root/build_artifacts/six_1620240208055/work
-threadpoolctl @ file:///home/conda/feedstock_root/build_artifacts/threadpoolctl_1643647933166/work
-tomli @ file:///tmp/build/80754af9/tomli_1637314251069/work
+python-dateutil 
+python-louvain 
+pytz 
+PyYAML 
+requests 
+scikit-learn 
+scipy 
+six 
+threadpoolctl 
+tomli 
 torch==1.9.1
-torch-cluster @ file:///C:/Miniconda/envs/test/conda-bld/pytorch-cluster_1631024244973/work
+torch-cluster 
 torch-geometric==2.0.4
-torch-scatter @ file:///C:/Miniconda/envs/test/conda-bld/pytorch-scatter_1634905728722/work
-torch-sparse @ file:///C:/Miniconda/envs/test/conda-bld/pytorch-sparse_1631187172381/work
-torch-spline-conv @ file:///C:/Miniconda/envs/test/conda-bld/pytorch-spline-conv_1631010007428/work
+torch-scatter 
+torch-sparse 
+torch-spline-conv 
 torchaudio==2.0.1+cu117
 torchvision==0.15.1+cu117
-tornado @ file:///C:/ci/tornado_1606942392901/work
-tqdm @ file:///home/conda/feedstock_root/build_artifacts/tqdm_1632160078689/work
-typing_extensions @ file:///home/conda/feedstock_root/build_artifacts/typing_extensions_1638334978229/work
-tzlocal @ file:///home/conda/feedstock_root/build_artifacts/tzlocal_1588939190034/work
-unicodedata2 @ file:///D:/bld/unicodedata2_1640031186081/work
-urllib3 @ file:///home/conda/feedstock_root/build_artifacts/urllib3_1641584929973/work
-Werkzeug @ file:///home/conda/feedstock_root/build_artifacts/werkzeug_1642714909499/work
-win-inet-pton @ file:///D:/bld/win_inet_pton_1635833007271/work
+tornado 
+tqdm 
+typing_extensions 
+tzlocal 
+unicodedata2 
+urllib3 
+Werkzeug 
+win-inet-pton 
 yacs==0.1.6
