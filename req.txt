@@ -17,7 +17,7 @@ colorama==0.4.4
 cryptography==36.0.1
 #cudatoolkit==11.1.1
 cycler==0.11.0
-dataclasses==0.8
+#dataclasses==0.8
 flask==2.0.3
 fonttools==4.29.1
 freetype==2.10.4
