@@ -84,28 +84,62 @@ def dataset_name():
     """
     Get the dataset_names for the UI
     """
+    dataset_pytorch_folder = os.path.join(
+        data_folder, "output", "KIRC_RANDOM", "kirc_random_pytorch")
+    with open(os.path.join(dataset_pytorch_folder, 'kirc_subnet_pytorch.pkl'), 'rb') as f:
+        graphs_list = pickle.load(f)
 
     return json.dumps(dataset_names)
 
 
 ########################################################################################################################
-# [0.2.] Get all available patient names and init data structure =======================================================
+# [0.2.] Debug =======================================================
 ########################################################################################################################
-@app.route("/data/name", methods=['POST'])
-def selected_dataset():
+@app.route('/<uuid:token>/debug/', methods=['GET'])
+def debug(token):
     """
-    Initializes the dataset and gets list of patient names (graph_ids)
+    Get the dataset_names for the UI
     """
-    # get dataset_name
-    dataset_name = request.get_json()
-    array = [1, 2, 3, 4]
+    global user_graph_data
+    user_graph_data = {}
+    graph_data = {}
+    dataset_pytorch_folder = os.path.join(
+        data_folder, "output", "KIRC_RANDOM", "kirc_random_pytorch")
+    with open(os.path.join(dataset_pytorch_folder, 'kirc_subnet_pytorch.pkl'), 'rb') as f:
+        graphs_list = pickle.load(f)
 
-    if 'name' in dataset_name:
-        array_name = dataset_name['name']
-        return json.dumps(array)
+    # Get the graph data
 
-    else:
-        return jsonify({'error': 'Array name not provided'})
+    graph = random.choice(list(graphs_list))
+    id = graph.graph_id
+    graph_id_composed = id
+
+    pattern = re.compile(graph_id_composed_regex)
+    graph_id_matches = bool(pattern.match(graph_id_composed))
+
+    assert graph_id_matches, f"The graph's id {graph_id_composed} does not match " \
+        f"the required pattern: {graph_id_composed_regex}"
+
+    graph_id_comp_array = graph_id_composed.split("_")
+    patient_id = graph_id_comp_array[2]
+    graph_id = graph_id_comp_array[3]
+
+    user_graph_data[str(token)] = graph_data
+    # 2.3. Reformat ndarrays to lists, according to graph_constraints ----------------------------------------------
+    patient_dict = {graph_id: graph}
+    print("PAtient dictionary", patient_id, patient_id)
+    print("GRaph data ", graph)
+    graph_data[patient_id] = patient_dict
+    user_graph_data[str(token)] = graph_data
+    graph_data = user_graph_data[str(token)]
+    selected_graph = graph_data[str(patient_id)][str(graph_id)]
+    graph.node_labels = graph.node_labels
+    graph.node_ids = graph.node_ids
+
+    nodelist, edgelist = transform_from_pytorch_to_ui(
+        selected_graph, "", "", "")
+
+    return json.dumps([nodelist.to_dict(orient='split'), edgelist.to_dict(orient='split')])
 
 
 ########################################################################################################################
@@ -121,7 +155,6 @@ def patient_name(token):
     # get dataset_name
     temp = request.get_json()
     dataset_name = temp["name"]
-
     # init the structure
     global user_graph_data
     user_graph_data = {}
@@ -198,11 +231,12 @@ def pre_defined_dataset(token):
     """
     Get the dataset information for the UI
     """
-
     # get dataset_name and patient ID for
-    dataset_name = request.args.get('dataset_name')
+    # dataset_name = request.args.get('dataset_name')
     patient_id = request.args.get('patient_id')
     graph_id = request.args.get('graph_id')
+    print("inside tje dataset route")
+    print(graph_id, patient_id)
 
     # get graph corresponding to graph id and patient id and transform to UI format
     graph_data = user_graph_data[str(token)]
