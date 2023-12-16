@@ -112,6 +112,8 @@ def debug(token):
 
     graph = random.choice(list(graphs_list))
     id = graph.graph_id
+    print("this is the id of the graph ")
+    print(id)
     graph_id_composed = id
 
     pattern = re.compile(graph_id_composed_regex)
@@ -121,13 +123,16 @@ def debug(token):
         f"the required pattern: {graph_id_composed_regex}"
 
     graph_id_comp_array = graph_id_composed.split("_")
+
     patient_id = graph_id_comp_array[2]
     graph_id = graph_id_comp_array[3]
+    print("This is the patient id an this is the graph")
+    print(patient_id, graph_id)
 
     user_graph_data[str(token)] = graph_data
     # 2.3. Reformat ndarrays to lists, according to graph_constraints ----------------------------------------------
     patient_dict = {graph_id: graph}
-    print("PAtient dictionary", patient_id, patient_id)
+    print("PAtient dictionary", patient_id, graph_id)
     print("GRaph data ", graph)
     graph_data[patient_id] = patient_dict
     user_graph_data[str(token)] = graph_data
@@ -141,6 +146,20 @@ def debug(token):
 
     return json.dumps([nodelist.to_dict(orient='split'), edgelist.to_dict(orient='split')])
 
+
+########################################################################################################################
+# [0.2.] Debug =======================================================
+########################################################################################################################
+@app.route('/<uuid:token>/debug2/', methods=['GET'])
+def debug2(token):
+    """
+    Get the dataset_names for the UI
+    """
+    dataset_name = request.args.get('dataset_name')
+    patient_id = request.args.get('patient_id')
+    graph_id = request.args.get('graph_id')
+
+    return json.dumps(user_graph_data[str(token)])
 
 ########################################################################################################################
 # [0.2.] Get all available patient names and init data structure =======================================================
@@ -235,8 +254,6 @@ def pre_defined_dataset(token):
     # dataset_name = request.args.get('dataset_name')
     patient_id = request.args.get('patient_id')
     graph_id = request.args.get('graph_id')
-    print("inside tje dataset route")
-    print(graph_id, patient_id)
 
     # get graph corresponding to graph id and patient id and transform to UI format
     graph_data = user_graph_data[str(token)]
@@ -750,6 +767,7 @@ def edge_importance(token):
 # [18.] Get Patient information ========================================================================================
 ########################################################################################################################
 @app.route('/<uuid:token>/patients/init', methods=['GET'])
+# for the first preiction labeel in the model dictionary
 def init_patient_information(token):
     """
     Get the following information of the Patient:
@@ -763,6 +781,10 @@ def init_patient_information(token):
     patient_id = request.args.get("patient_id")
     graph_id = request.args.get("graph_id")
     dataset_name = request.args.get("dataset_name")
+    print(dataset_name)
+    print(patient_id)
+    # print(user_graph_data[str(token)])
+    print(type(user_graph_data[str(token)]))
 
     # Ground truth label is already stored -----------------------------------------------------------------------------
     current_graph = user_graph_data[str(token)][patient_id][graph_id]
@@ -800,7 +822,11 @@ def init_patient_information(token):
     return json.dumps([which_dataset, ground_truth_label, predicted_labels[pat_idx], max(prediction_conf[pat_idx])])
 
 
+########################################################################################################################
+# [18.5] Get Patient information ========================================================================================
+########################################################################################################################
 @app.route('/<uuid:token>/patients/pat_info', methods=['GET'])
+# doing predction with new graph to get the preiction label and confidence
 def patient_information(token):
     """
     Get the following information of the Patient:
@@ -956,7 +982,6 @@ def delete_outdated_files_for_path(current_time, storage_path, constant_model_na
 
 
 # Don't know if needed
-
 
 ########################################################################################################################
 # [11.] Backup =========================================================================================================
